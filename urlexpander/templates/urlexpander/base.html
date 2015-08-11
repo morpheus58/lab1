@@ -4,16 +4,16 @@
 <head>
     <title>Morya's Blog</title>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
     <link href="http://fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="{% static "css/main.css" %}">
 </head>
 <body>
 <div class="page-header">
-    {% if user.is_authenticated %}
-    <a href="{% url "url_new" %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
-    {% endif %}
+        <a class="top-menu" href="{% url "url_new" %}">
+            <span class="glyphicon glyphicon-plus"></span>
+        </a>
     <h1><a href="/">Morya's Blog</a></h1>
 </div>
 <div class="content container">
