@@ -41,6 +41,9 @@ def url_edit(request, pk):
             url.page_title = siteTree.findtext('.//title')
             url.save()
             return redirect('urlexpander.views.urls_detail', pk=url.pk)
+    elif request.method == 'DELETE':
+        expandedurl.objects.get(pk=pk).delete()
+        return urls_list(request)
     else:
         form = ExpandedUrlForm(instance=url)
         return render(request, 'urlexpander/urls_edit.html', {'form': form})
