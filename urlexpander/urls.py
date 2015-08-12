@@ -21,5 +21,6 @@ urlpatterns = [
     url(r'^url/(?P<pk>[0-9]+)/$', views.urls_detail, name='urls_detail'),
     url(r'^url/new/$', views.url_new, name='url_new'),
     url(r'^url/(?P<pk>[0-9]+)/edit/$', views.url_edit, name='url_edit'),
+    url(r'^url/(?P<pk>[0-9]+)/remove/$', views.url_remove, name='url_remove'),
 ]
 

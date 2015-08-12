@@ -1,4 +1,5 @@
 from django.db import models
+import lxml
 from lxml.html import fromstring
 import requests
 

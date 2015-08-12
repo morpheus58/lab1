@@ -2,6 +2,7 @@ from .models import expandedurl
 from .forms import ExpandedUrlForm
 from django.shortcuts import render, get_object_or_404
 from django.shortcuts import redirect
+import lxml
 from lxml.html import fromstring
 import requests
 
@@ -41,13 +42,12 @@ def url_edit(request, pk):
             url.page_title = siteTree.findtext('.//title')
             url.save()
             return redirect('urlexpander.views.urls_detail', pk=url.pk)
-    elif request.method == 'DELETE':
-        expandedurl.objects.get(pk=pk).delete()
-        return urls_list(request)
     else:
         form = ExpandedUrlForm(instance=url)
         return render(request, 'urlexpander/urls_edit.html', {'form': form})
 
 
-#def delete_urls(request):
-#   if request.method == 'GET':
+def url_remove(request, pk):
+  url = get_object_or_404(expandedurl, pk=pk)
+  url.delete()
+  return urls_list(request)
